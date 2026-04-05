@@ -8,12 +8,32 @@ const gatewayCards = [
   {
     name: 'nsite.lol',
     href: 'https://nsite.lol',
-    note: 'Public gateway and index surface for many deployed sites.'
+    note: 'Public gateway and index surface for many deployed sites.',
+    status: 'Live'
   },
   {
     name: 'nsite.run',
     href: 'https://nsite.run',
-    note: 'Public gateway plus richer operational tooling around Nsite publishing.'
+    note: 'Public gateway plus richer operational tooling around Nsite publishing.',
+    status: 'Live'
+  },
+  {
+    name: 'nsite.cloud',
+    href: 'https://nsite.cloud',
+    note: 'Official Nsite cloud gateway domain. Keep this promoted and visible across examples.',
+    status: 'Official'
+  },
+  {
+    name: 'nosto.re',
+    href: 'https://nosto.re',
+    note: 'Community gateway observed serving Nsite subdomains.',
+    status: 'Community'
+  },
+  {
+    name: 'nwb.tf',
+    href: 'https://nwb.tf',
+    note: 'Community gateway and index endpoint with Nsite resolution.',
+    status: 'Community'
   }
 ]
 
@@ -49,7 +69,10 @@ const checks = [
           rel="noreferrer"
           class="surface rounded-[1.75rem] border border-[var(--color-line)] p-7 no-underline transition hover:-translate-y-1 hover:border-[var(--color-fg)]"
         >
-          <div class="text-3xl font-semibold text-[var(--color-fg)]">{{ gateway.name }}</div>
+          <div class="flex items-center justify-between gap-3">
+            <div class="text-3xl font-semibold text-[var(--color-fg)]">{{ gateway.name }}</div>
+            <span class="rounded-full border border-[var(--color-line)] px-3 py-1 text-xs font-semibold text-[var(--color-soft)]">{{ gateway.status }}</span>
+          </div>
           <p class="mt-4 text-sm leading-7 text-[var(--color-soft)]">{{ gateway.note }}</p>
         </a>
       </section>

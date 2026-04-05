@@ -2,6 +2,7 @@
 const links = [
   { label: 'nsite.lol', href: 'https://nsite.lol' },
   { label: 'nsite.run', href: 'https://nsite.run' },
+  { label: 'nsite.cloud', href: 'https://nsite.cloud' },
   { label: 'NIP-5A', href: 'https://github.com/nostr-protocol/nips/blob/master/5A.md' }
 ]
 </script>

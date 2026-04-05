@@ -16,7 +16,10 @@ export const DEFAULT_BLOSSOMS = [
 
 export const GATEWAY_HOSTS = [
   'https://nsite.lol',
-  'https://nsite.run'
+  'https://nsite.run',
+  'https://nsite.cloud',
+  'https://nosto.re',
+  'https://nwb.tf'
 ]
 
 const ROOT_KIND = 15128

@@ -16,6 +16,15 @@ const formatDate = (timestamp) => timestamp ? new Date(timestamp * 1000).toLocal
 const shortValue = (value = '', size = 16) => value && value.length > size * 2 ? `${value.slice(0, size)}...${value.slice(-size)}` : value
 const uploaderLabel = (site) => site.uploader?.name || shortValue(site.npub, 9)
 
+const getGatewayUrl = (site, domain) => {
+  const match = (site.links || []).find((link) => new URL(link.host).host === domain)
+  if (match?.rootSiteUrl) {
+    return match.rootSiteUrl
+  }
+
+  return `https://${site.npub}.${domain}`
+}
+
 const filteredSites = computed(() => {
   const sites = (explorer.value?.sites || []).filter((site) => {
     const name = String(site.uploader?.name || '').trim().toLowerCase()
@@ -142,8 +151,9 @@ onMounted(loadSites)
             </div>
 
             <div class="mt-4 flex flex-wrap gap-2 text-xs">
-              <a :href="site.links[0].rootSiteUrl" target="_blank" rel="noreferrer" class="rounded-full border border-[var(--color-line)] px-3 py-1.5 no-underline transition hover:bg-[var(--color-fg)] hover:text-[var(--color-bg)]">Visit nsite.lol</a>
-              <a :href="site.links[1].rootSiteUrl" target="_blank" rel="noreferrer" class="rounded-full border border-[var(--color-line)] px-3 py-1.5 no-underline transition hover:bg-[var(--color-fg)] hover:text-[var(--color-bg)]">Visit nsite.run</a>
+              <a :href="getGatewayUrl(site, 'nsite.lol')" target="_blank" rel="noreferrer" class="rounded-full border border-[var(--color-line)] px-3 py-1.5 no-underline transition hover:bg-[var(--color-fg)] hover:text-[var(--color-bg)]">Visit nsite.lol</a>
+              <a :href="getGatewayUrl(site, 'nsite.run')" target="_blank" rel="noreferrer" class="rounded-full border border-[var(--color-line)] px-3 py-1.5 no-underline transition hover:bg-[var(--color-fg)] hover:text-[var(--color-bg)]">Visit nsite.run</a>
+              <a :href="getGatewayUrl(site, 'nsite.cloud')" target="_blank" rel="noreferrer" class="rounded-full border border-[var(--color-line)] px-3 py-1.5 no-underline transition hover:bg-[var(--color-fg)] hover:text-[var(--color-bg)]">Visit nsite.cloud</a>
             </div>
           </article>
         </div>

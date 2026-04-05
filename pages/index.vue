@@ -6,7 +6,8 @@ useSeoMeta({
 
 const gatewayLinks = [
   { label: 'nsite.lol', href: 'https://nsite.lol' },
-  { label: 'nsite.run', href: 'https://nsite.run' }
+  { label: 'nsite.run', href: 'https://nsite.run' },
+  { label: 'nsite.cloud', href: 'https://nsite.cloud' }
 ]
 
 const featureCards = [
